@@ -4,14 +4,14 @@
 
 using namespace std;
 
-void rungek4(double t0, double tfinal ,double x0, double v0, double delta, int npuntos, string filename);
+string rungek4(double t0, double tfinal ,double x0, double v0, double delta, int npuntos, string filename);
 
 int main()
 {
 	double t_0=0.0;
 	double x_0=0.1;
 	double v_0=0.0;
-	rungek4(t_0, 5.0 ,x_0,v_0,0.01,1000, "datosresorte.txt" );
+	cout << rungek4(t_0, 5.0 ,x_0,v_0,0.01,1000, "datosresorte.txt" )<< endl;
 	return 0;
 }
 
@@ -28,10 +28,10 @@ double dxdt(double tiempo, double x0 ,double v0){
 }
 
 
-void rungek4(double t0, double tfinal, double x0, double v0, double delta, int npuntos, string filename){
+string rungek4(double t0, double tfinal, double x0, double v0, double delta, int npuntos, string filename){
 	ofstream outfile;
 	outfile.open(filename);
-
+	string mensaje;
 	double posicion[npuntos];
 	double velocidad[npuntos];
 	double tiempo[npuntos];
@@ -71,4 +71,11 @@ void rungek4(double t0, double tfinal, double x0, double v0, double delta, int n
 		outfile << tiempo[i]<< "  " << posicion[i] << "  " << velocidad[i] << endl;
 	}
     outfile.close();
+
+    for(int i=0; i< npuntos; i++)
+    {
+    	mensaje= "Tiempo  " + std::to_string(tiempo[i])+"  Posicion  "+ std::to_string(posicion[i])+ "  Velocidad   " + std::to_string(velocidad[i]);
+    }
+
+    return mensaje;
 }
