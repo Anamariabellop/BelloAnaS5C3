@@ -75,7 +75,7 @@ string rungek4(double t0, double tfinal, double x0, double v0, double delta, int
     for(int i=0; i< npuntos; i++)
     {
     	mensaje= "Tiempo  " + std::to_string(tiempo[i])+"  Posicion  "+ std::to_string(posicion[i])+ "  Velocidad   " + std::to_string(velocidad[i]);
-    }
+	}
 
     return mensaje;
 }
