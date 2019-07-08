@@ -5,4 +5,3 @@ datosresorte.dat: a.out
 	./a.out
 a.out: BelloAna_S5C3_ODES.cpp
 	g++ BelloAna_S5C3_ODES.cpp
-
